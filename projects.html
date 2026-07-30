@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Mosser</title>
+  <meta name="description" content="Projets — hauts faits présentés au crépuscule, au-dessus des montagnes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
+</head>
+<body data-page="projects">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="site-header__mark">Hugo<span> </span>Mosser</a>
+    <nav aria-label="Navigation principale">
+      <ul class="site-nav">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="bio.html" data-page="bio">About</a></li>
+        <li><a href="projects.html" data-page="projects" aria-current="page">Projects</a></li>
+        <li><a href="research.html" data-page="research">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="quest-hero">
+      <div class="quest-sky">
+        <div class="quest-sky__glow"></div>
+        <div class="quest-birds" aria-hidden="true">
+          <svg viewBox="0 0 60 20"><path d="M2,14 Q8,4 14,14 Q20,4 26,14" fill="none" stroke="#2a1420" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 60 20"><path d="M2,14 Q8,4 14,14 Q20,4 26,14" fill="none" stroke="#2a1420" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 60 20"><path d="M2,14 Q8,4 14,14 Q20,4 26,14" fill="none" stroke="#2a1420" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <svg class="quest-mountains quest-mountains--far" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,320 L0,190 L140,140 L260,200 L360,110 L480,190 L600,130 L740,210 L860,150 L980,200 L1100,120 L1240,195 L1360,150 L1440,190 L1440,320 Z" fill="#7c5a72" opacity="0.55"/>
+      </svg>
+      <svg class="quest-mountains quest-mountains--mid" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,320 L0,230 L160,160 L300,230 L420,150 L560,235 L680,175 L820,240 L950,165 L1090,235 L1220,170 L1350,225 L1440,190 L1440,320 Z" fill="#5b3a52" opacity="0.75"/>
+      </svg>
+      <svg class="quest-mountains quest-mountains--near" viewBox="0 0 1440 300" preserveAspectRatio="none">
+        <path d="M0,300 L0,255 L200,180 L380,250 L520,170 L680,245 L840,195 L1020,255 L1180,190 L1320,240 L1440,210 L1440,300 Z" fill="#241521"/>
+        <!-- a lone standing banner on the nearest peak -->
+        <g transform="translate(676,155)">
+          <line x1="0" y1="0" x2="0" y2="42" stroke="#241521" stroke-width="3"/>
+          <path d="M0,2 L26,9 L0,17 Z" fill="#b5482f"/>
+        </g>
+      </svg>
+
+      <div class="quest-hero__copy">
+        <p class="eyebrow">Projects</p>
+        <h1>Independent Projects and Research</h1>
+        <!--<p class="quest-hero__sub"> Projects and Researchs .</p> -->
+      </div>
+    </section>
+
+    <section class="quest-board">
+      <svg class="quest-canyon quest-canyon--left" viewBox="0 0 220 900" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="canyonBack" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e0925a"/>
+            <stop offset="35%" stop-color="#a85a78"/>
+            <stop offset="100%" stop-color="#5a3560"/>
+          </linearGradient>
+          <linearGradient id="canyonFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c96a4a"/>
+            <stop offset="30%" stop-color="#7a3a5a"/>
+            <stop offset="100%" stop-color="#2e1830"/>
+          </linearGradient>
+          <filter id="roundRock" x="-20%" y="-5%" width="140%" height="110%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0 0 0 24 -11" result="rounded"/>
+          </filter>
+        </defs>
+        <g filter="url(#roundRock)">
+          <path d="M0,0 L145,0 L185,55 L130,120 L195,200 L120,300 L200,400 L135,500 L190,600 L125,700 L185,800 L150,860 L165,900 L0,900 Z" fill="url(#canyonBack)" opacity="0.75"/>
+          <path d="M0,0 L170,0 L210,45 L155,100 L218,170 L145,250 L221,340 L160,430 L215,520 L150,610 L217,700 L165,790 L200,850 L175,900 L0,900 Z" fill="url(#canyonFront)"/>
+        </g>
+      </svg>
+      <svg class="quest-canyon quest-canyon--right" viewBox="0 0 220 900" preserveAspectRatio="none" aria-hidden="true">
+        <g filter="url(#roundRock)">
+          <path d="M0,0 L145,0 L185,55 L130,120 L195,200 L120,300 L200,400 L135,500 L190,600 L125,700 L185,800 L150,860 L165,900 L0,900 Z" fill="url(#canyonBack)" opacity="0.75"/>
+          <path d="M0,0 L170,0 L210,45 L155,100 L218,170 L145,250 L221,340 L160,430 L215,520 L150,610 L217,700 L165,790 L200,850 L175,900 L0,900 Z" fill="url(#canyonFront)"/>
+        </g>
+      </svg>
+
+      <div class="quest-lines" id="quest-lines">
+        <!-- populated by projects.js -->
+      </div>
+    </section>
+
+    <div class="paper-modal" id="paper-modal" aria-hidden="true">
+      <div class="paper-modal__backdrop" data-close></div>
+      <div class="paper-modal__panel" role="dialog" aria-modal="true" aria-labelledby="paper-modal-title">
+        <button class="paper-modal__close" type="button" data-close aria-label="Fermer">×</button>
+        <span class="eyebrow paper-modal__venue" id="paper-modal-venue"></span>
+        <h2 id="paper-modal-title"></h2>
+        <p class="paper-modal__abstract" id="paper-modal-abstract"></p>
+        <div class="paper-modal__links">
+          <a class="paper-modal__link" id="paper-modal-repo" href="#" target="_blank" rel="noreferrer">Repository →</a>
+          <a class="paper-modal__link" id="paper-modal-docs" href="#" target="_blank" rel="noreferrer">Docs →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> — Hugo Mosser</span>
+    <div class="site-footer__links">
+      hmosser [dot] p [at] gmail [dot] com
+      <a href="https://www.linkedin.com/in/hugo-mosser/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/strandedDepths" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/embers.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/projects.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

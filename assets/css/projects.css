@@ -1,0 +1,406 @@
+body[data-page="projects"] {
+  background: #1c0f12;
+}
+
+/* ==========================================================================
+   The sunset vista — mountains at dusk, sun never shown, just its glow
+   ========================================================================== */
+
+.quest-hero {
+  position: relative;
+  min-height: 78vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #241226 0%, #4a2140 34%, #86335a 58%, #c4573f 78%, #e28a3f 100%);
+}
+
+.quest-sky {
+  position: absolute;
+  inset: 0;
+}
+
+.quest-sky__glow {
+  position: absolute;
+  left: 50%;
+  bottom: -10vh;
+  width: 90vw;
+  height: 50vh;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 100% at 50% 100%, rgba(255, 200, 130, 0.55), transparent 72%);
+  filter: blur(2px);
+}
+
+.quest-birds {
+  position: absolute;
+  inset: 0;
+}
+.quest-birds svg {
+  position: absolute;
+  width: 46px;
+  height: auto;
+  opacity: 0.6;
+  animation: bird-drift 26s linear infinite;
+}
+.quest-birds svg:nth-child(1) { top: 18%; left: -8%; animation-delay: 0s; }
+.quest-birds svg:nth-child(2) { top: 26%; left: -8%; width: 34px; animation-delay: -8s; animation-duration: 22s; }
+.quest-birds svg:nth-child(3) { top: 14%; left: -8%; width: 30px; animation-delay: -16s; animation-duration: 30s; }
+
+@keyframes bird-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(124vw); }
+}
+
+.quest-mountains {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.quest-mountains--far { height: 46vh; }
+.quest-mountains--mid { height: 38vh; }
+.quest-mountains--near { height: 30vh; }
+
+.quest-hero__copy {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 1.5rem 2.25rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(20, 8, 14, 0.4), rgba(20, 8, 14, 0.18));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.quest-hero__copy .eyebrow {
+  color: #ffcf8a;
+}
+
+.quest-hero__copy h1 {
+  font-family: "Grenze Gotisch", var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+  margin: 0.6rem 0 0.5rem;
+  color: #fff6ea;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+.quest-hero__sub {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(255, 240, 224, 0.75);
+}
+
+/* ==========================================================================
+   The quest lines — projects hanging as banners from ropes, two per line
+   ========================================================================== */
+
+.quest-board {
+  position: relative;
+  background: linear-gradient(180deg, #1c0f12 0%, #170c10 100%);
+  padding-bottom: 8rem;
+}
+
+.quest-canyon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(160px, 30vw, 440px);
+  height: 100%;
+  z-index: 0;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.5));
+}
+
+.quest-canyon--left {
+  left: 0;
+}
+
+.quest-canyon--right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.quest-lines {
+  position: relative;
+  padding: 4rem clamp(160px, 30vw, 440px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11rem;
+}
+
+.quest-line {
+  position: relative;
+  height: 6.5rem;
+}
+
+/* The rope is drawn taut, wall to wall — the padding above already stops
+   exactly at each wall's inner edge, so the rope's own 0%–100% width runs
+   from one wall straight to the other. */
+.quest-line__rope {
+  position: absolute;
+  inset: 0;
+  
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 0.5;
+}
+
+.quest-line__rope .rope-twist {
+  animation: rope-twist 3s ease-in-out infinite alternate;
+}
+
+@keyframes rope-twist {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -32; }
+}
+
+.quest-flags {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* positioned to land exactly on the rope's bezier curve at t=0.2 / t=0.8 */
+.quest-flag-anchor {
+  position: absolute;
+  top: 41%;
+  transform: translateX(-50%);
+  width: min(15rem, 34vw);
+}
+
+.quest-flag-anchor:nth-of-type(1) { left: 20%; }
+.quest-flag-anchor:nth-of-type(2) { left: 80%; }
+
+.quest-flag-wrap {
+  position: relative;
+  padding-top: 0.9rem;
+  transform-origin: top center;
+  animation: flag-sway 5.5s ease-in-out infinite;
+}
+
+.quest-line:nth-child(odd) .quest-flag-anchor:nth-of-type(1) .quest-flag-wrap { animation-delay: 0s; animation-duration: 5.4s; }
+.quest-line:nth-child(odd) .quest-flag-anchor:nth-of-type(2) .quest-flag-wrap { animation-delay: -2.1s; animation-duration: 6.3s; }
+.quest-line:nth-child(even) .quest-flag-anchor:nth-of-type(1) .quest-flag-wrap { animation-delay: -3.4s; animation-duration: 5.9s; }
+.quest-line:nth-child(even) .quest-flag-anchor:nth-of-type(2) .quest-flag-wrap { animation-delay: -1s; animation-duration: 6.8s; }
+
+@keyframes flag-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* the pin sits outside the banner's own clip-path, so it is never cut off,
+   and lands right on the rope itself */
+.quest-flag-pin {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe6ab, #a9761f 72%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 9px rgba(255, 210, 130, 0.6);
+  z-index: 2;
+}
+
+.quest-banner {
+  position: relative;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  color: var(--foam-100);
+  padding: 1.7rem 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: linear-gradient(165deg, #6b2a2e, #43181c);
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 53% 76%, 47% 76%, 0 88%);
+  box-shadow: 0 16px 26px -16px rgba(0, 0, 0, 0.75);
+  transition: filter 0.3s ease;
+}
+
+.quest-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, rgba(0, 0, 0, 0.08) 0 2px, transparent 2px 16px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.quest-banner:hover,
+.quest-banner:focus-visible {
+  filter: brightness(1.12);
+}
+
+.quest-banner .date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: #ffcf8a;
+}
+
+.quest-banner h3 {
+  font-family: "Grenze Gotisch", var(--font-display);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin: 0;
+  color: #fff3e4;
+}
+
+.quest-banner .description {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 240, 227, 0.72);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 760px) {
+  .quest-canyon { width: clamp(50px, 14vw, 130px); }
+  .quest-lines { padding-left: clamp(50px, 14vw, 130px); padding-right: clamp(50px, 14vw, 130px); }
+}
+@media (max-width: 460px) {
+  .quest-canyon { width: clamp(28px, 10vw, 70px); }
+  .quest-lines { padding-left: clamp(28px, 10vw, 70px); padding-right: clamp(28px, 10vw, 70px); gap: 2.5rem; }
+  .quest-line { height: auto; }
+  .quest-line__rope { position: relative; height: 2.6rem; }
+  .quest-flags {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding-top: 0.5rem;
+  }
+  .quest-flag-anchor {
+    position: relative;
+    top: auto;
+    left: auto !important;
+    transform: none;
+    width: min(80%, 16rem);
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   The project modal — reuses the same interaction pattern as the papers,
+   re-toned to match this page's warm palette.
+   ========================================================================== */
+
+.paper-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh var(--gutter);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.paper-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.paper-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 6, 8, 0.8);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.paper-modal__panel {
+  position: relative;
+  max-width: 34rem;
+  width: 100%;
+  max-height: 84vh;
+  overflow-y: auto;
+  background: linear-gradient(165deg, #4a2226, #2a1416);
+  border: 1px solid rgba(255, 205, 138, 0.3);
+  border-radius: 10px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7), 0 0 40px -12px rgba(255, 176, 110, 0.25);
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.25s ease;
+}
+
+.paper-modal.is-open .paper-modal__panel {
+  transform: translateY(0) scale(1);
+}
+
+.paper-modal__close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 240, 227, 0.1);
+  color: rgba(255, 240, 227, 0.8);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.paper-modal__close:hover,
+.paper-modal__close:focus-visible {
+  background: rgba(255, 176, 110, 0.3);
+  color: #fff3e4;
+}
+
+.paper-modal__venue {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #ffcf8a;
+}
+
+.paper-modal__panel h2 {
+  font-family: "Grenze Gotisch", var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin: 0 0 1rem;
+  padding-right: 1.5rem;
+  color: #fff3e4;
+}
+
+.paper-modal__abstract {
+  color: rgba(255, 240, 227, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.paper-modal__links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.paper-modal__link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: #ffcf8a;
+  border-bottom: 1px solid rgba(255, 207, 138, 0.4);
+}
+
+.paper-modal__link:hover {
+  border-color: #ffcf8a;
+}

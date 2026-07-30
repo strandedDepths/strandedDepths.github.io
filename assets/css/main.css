@@ -1,0 +1,240 @@
+/* ==========================================================================
+   ABYSSES — design tokens & base
+   ========================================================================== */
+
+:root {
+  /* Color — depth gradient from surface to trench */
+  --abyss-950: #030608;
+  --abyss-900: #050b14;
+  --abyss-800: #0a1826;
+  --deep-700: #0f2a3e;
+  --trench-600: #163c52;
+  --trench-500: #1d4d69;
+
+  /* Accents */
+  --bioluminescence: #6ee7c0;
+  --bioluminescence-soft: rgba(110, 231, 192, 0.32);
+  --bioluminescence-dim: rgba(110, 231, 192, 0.12);
+  --coral-flare: #ff7a45;
+  --coral-flare-soft: rgba(255, 122, 69, 0.4);
+  --coral-flare-dim: rgba(255, 122, 69, 0.15);
+
+  /* Text */
+  --foam-100: #eaf4f4;
+  --foam-70: rgba(234, 244, 244, 0.72);
+  --foam-45: rgba(234, 244, 244, 0.45);
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Rhythm */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --radius-sm: 4px;
+  --radius-md: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--abyss-950);
+  color: var(--foam-100);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--coral-flare-soft);
+  color: var(--abyss-950);
+}
+
+/* Focus visibility — kept even inside dark theme */
+:focus-visible {
+  outline: 2px solid var(--bioluminescence);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Ambient background canvas — drifting particulate (bubbles or snow depending on page) */
+#ambient-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ==========================================================================
+   Site header — shared across all pages
+   ========================================================================== */
+
+:root {
+  --header-height: 5.5rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem var(--gutter);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.site-header.is-stuck {
+  background: rgba(6, 14, 22, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.8);
+}
+
+.site-header__mark {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--foam-100);
+}
+
+.site-header__mark span {
+  color: var(--bioluminescence);
+}
+
+.site-nav {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--foam-45);
+  text-transform: uppercase;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--bioluminescence);
+  border-color: var(--bioluminescence-soft);
+}
+
+.depth-readout {
+  color: var(--foam-45);
+  white-space: nowrap;
+}
+
+.depth-readout strong {
+  color: var(--coral-flare);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Site footer
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: 6rem;
+  padding: 2.5rem var(--gutter) 3rem;
+  border-top: 1px solid rgba(234, 244, 244, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--foam-45);
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: var(--foam-70);
+  border-bottom: 1px solid rgba(234, 244, 244, 0.25);
+}
+
+.site-footer__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-footer a:hover {
+  color: var(--bioluminescence);
+  border-color: var(--bioluminescence);
+}
+
+/* ==========================================================================
+   Generic utility
+   ========================================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral-flare);
+}
+
+main {
+  position: relative;
+  z-index: 5;
+}

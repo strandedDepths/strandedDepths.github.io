@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Mosser</title>
+  <meta name="description" content="Publications de recherche — un château gelé, franchi de nuit jusqu'à ses archives." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/research.css" />
+</head>
+<body data-page="research">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="site-header__mark">Hugo<span> </span>Mosser</a>
+    <nav aria-label="Navigation principale">
+      <ul class="site-nav">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="bio.html" data-page="bio">About</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="research.html" data-page="research" aria-current="page">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+    <section class="castle-track" id="castle-track">
+      <div class="castle-scene" id="castle-scene">
+
+        <div class="castle-sky">
+          <div class="castle-stars"></div>
+          <div class="castle-moon"></div>
+        </div>
+
+        <svg class="castle-mountains" viewBox="0 0 1440 220" preserveAspectRatio="none">
+          <path d="M0,220 L0,110 L180,150 L340,70 L520,140 L700,50 L900,130 L1080,80 L1260,150 L1440,100 L1440,220 Z" fill="#0a1420"/>
+        </svg>
+
+        <svg class="castle-hill" viewBox="0 0 1440 260" preserveAspectRatio="none">
+          <path d="M0,260 L0,150 Q180,90 360,140 T720,110 T1080,150 T1440,120 L1440,260 Z" fill="#0e1c2c"/>
+          <path d="M0,260 L0,190 Q220,150 440,185 T880,165 T1440,180 L1440,260 Z" fill="#15263a"/>
+        </svg>
+
+        <div class="castle-rig" id="castle-rig">
+          <svg class="castle-body" viewBox="0 0 680 560" preserveAspectRatio="xMidYMax meet">
+            <defs>
+              <radialGradient id="windowGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffcf8a" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#ffcf8a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- right tower: tall, jagged broken crown -->
+            <rect x="520" y="150" width="88" height="360" fill="#1c2d40"/>
+            <polygon points="520,150 536,118 552,144 568,104 584,138 600,116 608,150" fill="#26394f"/>
+
+            <!-- left tower: partly collapsed, shorter, rubble at its foot -->
+            <rect x="58" y="260" width="82" height="250" fill="#1a2937"/>
+            <polygon points="58,260 70,228 92,252 112,220 140,260" fill="#233448"/>
+            <polygon points="20,510 55,430 90,470 60,510" fill="#131e29" opacity="0.9"/>
+            <polygon points="140,510 175,460 205,510" fill="#131e29" opacity="0.8"/>
+
+            <!-- central keep, broken along its top edge -->
+            <polygon points="140,236 190,236 190,214 224,214 224,236 270,236 270,206 310,206 310,236
+                              360,236 360,218 402,218 402,236 452,236 452,210 492,210 492,236 520,236
+                              520,510 140,510" fill="#22344a"/>
+
+            <!-- collapsed section of wall, low rubble to the left of the gate -->
+            <polygon points="150,420 150,460 195,460 210,430 230,460 260,460 260,420" fill="#101a24"/>
+
+            <!-- ivy -->
+            <g fill="#233d29" opacity="0.85">
+              <ellipse cx="110" cy="330" rx="26" ry="58"/>
+              <ellipse cx="560" cy="300" rx="20" ry="70"/>
+              <ellipse cx="330" cy="250" rx="16" ry="34"/>
+            </g>
+
+            <!-- windows: a few dark and broken, one or two still lit -->
+            <g fill="#0b131c">
+              <rect x="180" y="290" width="20" height="30" rx="9"/>
+              <rect x="290" y="270" width="18" height="26" rx="8"/>
+              <rect x="440" y="300" width="18" height="26" rx="8"/>
+              <rect x="80" y="360" width="18" height="26" rx="8"/>
+            </g>
+            <g class="castle-window">
+              <rect x="240" y="300" width="20" height="30" rx="9"/>
+              <rect x="380" y="280" width="18" height="26" rx="8"/>
+              <rect x="545" y="230" width="20" height="28" rx="9"/>
+            </g>
+
+            <!-- snow resting on every broken edge -->
+            <g fill="#eef4f7" opacity="0.95">
+              <polygon points="520,150 536,118 552,144 545,138 530,132"/>
+              <polygon points="568,104 584,138 600,116 590,122 578,112"/>
+              <polygon points="58,260 70,228 92,252 82,246 66,240"/>
+              <polygon points="92,252 112,220 140,260 122,250 105,246"/>
+              <rect x="140" y="204" width="380" height="7"/>
+            </g>
+
+            <!-- gate archway, cut dark into the keep -->
+            <path d="M298,510 L298,410 Q298,362 350,362 Q402,362 402,410 L402,510 Z" fill="#04070b"/>
+          </svg>
+
+          <div class="castle-gate" id="castle-gate">
+            <div class="castle-gate__glow"></div>
+            <div class="castle-door castle-door--left"></div>
+            <div class="castle-door castle-door--right"></div>
+          </div>
+        </div>
+
+        <div class="castle-flash" aria-hidden="true"></div>
+
+        <div class="castle-scene__copy">
+          <p class="eyebrow">Research</p>
+          <h1>Research &amp; Independent Papers</h1>
+          <p class="castle-scene__sub">
+            I'm not part of a research lab. This is something I do in my spare time, out of genuine
+            curiosity. Below are papers I have written on complex problems I find worth exploring.
+          </p>
+        </div>
+        <p class="dive-hint">Scroll down ↓</p>
+      </div>
+    </section>
+
+    <section class="archive-interior" id="archive-interior">
+      <div class="archive-banner">
+        <span class="torn-flag" title="Tri à venir">Latest</span>
+      </div>
+
+      <div class="archive-grid" id="archive-grid">
+        <!-- populated by research.js -->
+      </div>
+
+      <div class="archive-floor" aria-hidden="true"></div>
+
+      <div class="archive-old-door" aria-hidden="true">
+        <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMax meet">
+          <defs>
+            <radialGradient id="doorGlow" cx="50%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#9fe0f0" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#9fe0f0" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="160" cy="80" rx="180" ry="90" fill="url(#doorGlow)"/>
+          <!-- stone archway -->
+          <path d="M20,400 L20,150 Q20,40 160,40 Q300,40 300,150 L300,400 Z" fill="#0a151f" stroke="#2a3d4e" stroke-width="6"/>
+          <!-- old door -->
+          <path d="M46,400 L46,160 Q46,66 160,66 Q274,66 274,160 L274,400 Z" fill="#1c130c" stroke="#0c0805" stroke-width="4"/>
+          <line x1="160" y1="66" x2="160" y2="400" stroke="#0c0805" stroke-width="3"/>
+          <!-- iron bands -->
+          <g stroke="#3a3128" stroke-width="10" opacity="0.9">
+            <line x1="46" y1="150" x2="274" y2="150"/>
+            <line x1="46" y1="260" x2="274" y2="260"/>
+            <line x1="46" y1="360" x2="274" y2="360"/>
+          </g>
+          <!-- rivets -->
+          <g fill="#5a4c3a">
+            <circle cx="70" cy="150" r="4"/><circle cx="130" cy="150" r="4"/><circle cx="190" cy="150" r="4"/><circle cx="250" cy="150" r="4"/>
+            <circle cx="70" cy="260" r="4"/><circle cx="130" cy="260" r="4"/><circle cx="190" cy="260" r="4"/><circle cx="250" cy="260" r="4"/>
+            <circle cx="70" cy="360" r="4"/><circle cx="130" cy="360" r="4"/><circle cx="190" cy="360" r="4"/><circle cx="250" cy="360" r="4"/>
+          </g>
+          <!-- ring handles -->
+          <circle cx="120" cy="230" r="12" fill="none" stroke="#6b5c46" stroke-width="4"/>
+          <circle cx="200" cy="230" r="12" fill="none" stroke="#6b5c46" stroke-width="4"/>
+          <!-- frozen ground built up against the threshold -->
+          <path d="M0,400 L0,378 Q40,362 80,374 Q120,358 160,372 Q200,356 240,372 Q280,360 320,376 L320,400 Z" fill="#dcecf4"/>
+          <path d="M20,400 L20,386 Q60,376 100,384 Q145,372 190,384 Q230,374 270,384 Q292,378 300,386 L300,400 Z" fill="#aecbdb" opacity="0.85"/>
+          <path d="M55,378 Q60,392 50,400 L70,400 Q66,388 62,378 Z" fill="#eef6fa" opacity="0.9"/>
+          <path d="M235,382 Q244,394 236,400 L256,400 Q250,390 244,380 Z" fill="#eef6fa" opacity="0.9"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="paper-modal" id="paper-modal" aria-hidden="true">
+      <div class="paper-modal__backdrop" data-close></div>
+      <div class="paper-modal__panel" role="dialog" aria-modal="true" aria-labelledby="paper-modal-title">
+        <button class="paper-modal__close" type="button" data-close aria-label="Fermer">×</button>
+        <span class="eyebrow paper-modal__venue" id="paper-modal-venue"></span>
+        <h2 id="paper-modal-title"></h2>
+        <p class="paper-modal__abstract" id="paper-modal-abstract"></p>
+        <div class="paper-modal__links">
+          <a class="paper-modal__link" id="paper-modal-code" href="#" target="_blank" rel="noreferrer">Code →</a>
+          <a class="paper-modal__link" id="paper-modal-paper" href="#" target="_blank" rel="noreferrer">Paper →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> — Hugo Mosser</span>
+    <div class="site-footer__links">
+       hmosser [dot] p [at] gmail [dot] com
+      <a href="https://www.linkedin.com/in/hugo-mosser/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/strandedDepths" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/snow.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/research.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

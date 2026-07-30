@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Mosser</title>
+  <meta name="description" content="HM Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+</head>
+<body data-page="home">
+
+  <!-- Static Nordic backdrop: night sky, aurora, fjord mountains -->
+  <div class="aurora-sky" aria-hidden="true">
+    <div class="aurora-sky__stars"></div>
+    <div class="aurora-sky__glow aurora-sky__glow--a"></div>
+    <div class="aurora-sky__glow aurora-sky__glow--b"></div>
+    <svg class="aurora-sky__mountains" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,320 L0,180 L120,110 L230,170 L320,80 L430,190 L520,120 L640,200
+               L760,60 L860,180 L960,130 L1080,210 L1180,140 L1300,190 L1440,120 L1440,320 Z"
+            fill="#16283a" opacity="0.55"/>
+      <path d="M0,320 L0,230 L100,160 L210,220 L300,150 L410,240 L500,190 L620,250
+               L720,140 L830,230 L930,190 L1040,250 L1140,200 L1260,240 L1440,190 L1440,320 Z"
+            fill="#0d1c2b"/>
+    </svg>
+    <div class="aurora-sky__water"></div>
+  </div>
+
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="site-header__mark">Hugo<span> </span>Mosser</a>
+    <nav aria-label="Navigation principale">
+      <ul class="site-nav">
+        <li><a href="index.html" data-page="home" aria-current="page">Home</a></li>
+        <li><a href="bio.html" data-page="bio">About</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="research.html" data-page="research">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-hero">
+      <div class="intro-hero__text">
+        <h1>Hi, I'm Hugo.</h1>
+        <p class="intro-hero__role">AI/ML Engineer</p>
+
+        <p>
+          I'm an AI/ML engineer, curious and open to exploring almost any domain. From natural language
+          processing to computer vision. I'm especially passionate about languages, a passion that
+          connects directly to my research interests in AI: multilingual and cross-lingual NLP.
+        </p>
+        <p>
+          I graduated in March 2025 with a French engineering degree in Computer Science, specializing
+          in Artificial Intelligence. Since then, I have been building independent development and AI
+          research projects on my own. More recently, I have been volunteering as a founding Full-Stack Engineer at
+          an early-stage startup, designing and building an authority-control platform end to end from
+          architecture to a full security audit.
+        </p>
+        <p>
+          Always looking for new opportunities to collaborate and exchange ideas—feel free to reach out!
+        </p>
+
+        <div class="intro-hero__actions">
+          <button id="email-btn" class="btn btn--primary">Contact</button>
+          <a class="btn btn--ghost" href="assets/CV.pdf">View CV</a>
+        </div>
+
+        <div class="intro-hero__social" aria-label="Réseaux">
+          <a href="https://github.com/strandedDepths" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/hugo-mosser/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="intro-hero__photo">
+        <div class="intro-photo-frame">
+          <img src="assets/images/pp.jpg" alt="Hugo Mosser" />
+          
+        </div>
+      </div>
+    </section>
+
+    <p class="page-hint">Scroll Down ↓</p>
+
+    <section class="news" aria-label="Actualités">
+      <p class="eyebrow">News</p>
+      <ul class="news-list" id="news-list">
+        <!-- populated by home.js from assets/js/data/news.js -->
+      </ul>
+    </section>
+
+    <section class="home-stage">
+      
+
+      <div class="slits" aria-label="Sections du site">
+
+        <a class="slit-group slit-group--bio" href="bio.html" data-title="Bio">
+          <span class="slit" aria-hidden="true">
+            <svg class="glyph-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15,90 Q100,148 185,90" />
+              <path d="M15,90 Q4,72 20,55" />
+              <path d="M185,90 Q196,72 180,55" />
+              <line x1="52" y1="118" x2="52" y2="86" />
+              <line x1="76" y1="130" x2="76" y2="90" />
+              <line x1="100" y1="135" x2="100" y2="30" />
+              <line x1="124" y1="130" x2="124" y2="90" />
+              <line x1="148" y1="118" x2="148" y2="86" />
+              <path d="M70,50 L130,50 L118,82 L82,82 Z" />
+            </svg>
+          </span>
+          <span class="slit-title-wrap">
+            <canvas class="slit-particles" aria-hidden="true"></canvas>
+            <span class="slit-title">About</span>
+          </span>
+        </a>
+
+        <a class="slit-group slit-group--projects" href="projects.html" data-title="Projects">
+          <span class="slit" aria-hidden="true">
+            <svg class="glyph-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M45,115 Q90,100 135,110 L168,98" />
+              <path d="M168,98 L184,107 L167,115" />
+              <path d="M133,110 L122,88 L108,104" />
+              <path d="M118,104 L106,84 L98,107" />
+              <circle cx="150" cy="104" r="2.4" fill="currentColor" stroke="none" />
+              <path d="M45,115 Q38,140 30,162" />
+              <path d="M70,120 L64,162" />
+              <path d="M108,118 L110,162" />
+              <path d="M138,113 Q148,138 155,162" />
+              <path d="M45,115 Q18,118 14,98 Q12,84 26,88" />
+            </svg>
+          </span>
+          <span class="slit-title-wrap">
+            <canvas class="slit-particles" aria-hidden="true"></canvas>
+            <span class="slit-title">Projects</span>
+          </span>
+        </a>
+
+        <a class="slit-group slit-group--research" href="research.html" data-title="Research">
+          <span class="slit" aria-hidden="true">
+            <svg class="glyph-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M62,42 Q40,42 40,58 Q40,72 60,70" />
+              <path d="M62,158 Q40,158 40,142 Q40,128 60,130" />
+              <path d="M138,42 Q160,42 160,58 Q160,72 140,70" />
+              <path d="M138,158 Q160,158 160,142 Q160,128 140,130" />
+              <path d="M60,70 L60,130 M140,70 L140,130" />
+              <line x1="76" y1="88" x2="124" y2="88" />
+              <line x1="76" y1="103" x2="112" y2="103" />
+              <line x1="76" y1="118" x2="120" y2="118" />
+            </svg>
+          </span>
+          <span class="slit-title-wrap">
+            <canvas class="slit-particles" aria-hidden="true"></canvas>
+            <span class="slit-title">Research</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> — Hugo Mosser</span>
+    <div class="site-footer__links">
+      hmosser [dot] p [at] gmail [dot] com
+      <a href="https://www.linkedin.com/in/hugo-mosser/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/strandedDepths" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/snow.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

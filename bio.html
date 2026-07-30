@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Mosser</title>
+  <meta name="description" content="Bio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/bio.css" />
+</head>
+<body data-page="bio">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="site-header__mark">Hugo<span> </span>Mosser</a>
+    <nav aria-label="Navigation principale">
+      <ul class="site-nav">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="bio.html" data-page="bio" aria-current="page">About</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="research.html" data-page="research">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dive-intro">
+      <p class="eyebrow">About</p>
+      <h1>Work Experience.</h1>
+      <p class="dive-intro__sub">A Step by step interactive animation showing my experience since university. Scroll Down to see.</p>
+    </section>
+
+    <section class="dive-track" id="dive-track">
+      <div class="dive-scene" id="dive-scene">
+        <canvas id="bio-canvas" aria-hidden="true"></canvas>
+        <div class="dive-labels" id="dive-labels" aria-hidden="true"></div>
+        <p class="dive-hint">Scroll Down ↓</p>
+      </div>
+    </section>
+
+    <!-- Accessible / no-JS / no-WebGL / reduced-motion fallback -->
+    <section class="timeline-fallback" id="timeline-fallback">
+      <h2 class="visually-hidden">Étapes du parcours</h2>
+      <ol class="timeline-list" id="timeline-list"></ol>
+    </section>
+
+    <section class="bio-education">
+      <p class="eyebrow">In detail</p>
+      <ol class="edu-timeline">
+        <li>
+          <span class="edu-dates">Jun 2026 – Present</span>
+          <h3>FlowSignal· England · Remote</h3>
+          <p><em>Volunteer and Founding Full-Stack Engineer</em>, Technical co-founder: Sole Engineer responsible for the design, architecture and implementation decisions while collaborating with co-founders on product direction and technical decisions.</p>
+        </li>
+        <li>
+          <span class="edu-dates">Sep 2025 – Present</span>
+          <h3>Remote</h3>
+          <p><em>AI Engineer – Independent Projects</em>, Delivered AI/ML projects with public GitHub repositories, documented READMEs, and deployable backends demonstrating full ML lifecycle from data to production.</p>
+        </li>
+        <li>
+          <span class="edu-dates">Apr 2024 – Oct 2024</span>
+          <h3>STMicroelectronics · Crolles · France</h3>
+          <p><em>AI R&D Engineer Intern</em>, AI optimization R&D to approximate computationally expensive analog circuit simulations.</p>
+        </li>
+        <li>
+          <span class="edu-dates">Apr 2023 – Sep 2023</span>
+          <h3>Osaka Metropolitan University · Osaka, Japan</h3>
+          <p><em>ML/AI Research Scientist Intern</em>, Research on multimodal AI for onomatopoeia generation.</p>
+        </li>
+        <li>
+          <span class="edu-dates">2019 – 2024</span>
+          <h3>CY Tech, CY Cergy Paris Université · France</h3>
+          <p>Master’s-level Engineering Degree in Computer Science after 2 years of Classes préparatoires.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> — Hugo Mosser</span>
+    <div class="site-footer__links">
+      hmosser [dot] p [at] gmail [dot] com
+      <a href="https://www.linkedin.com/in/hugo-mosser/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/strandedDepths" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/ambient.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/bio-scene.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
